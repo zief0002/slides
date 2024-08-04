@@ -1,0 +1,255 @@
+---
+title: "Day 08<br />Introduction to Hypothesis Testing"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Describe the purpose of a hypothesis test.
+- List the steps of a hypothesis test.
+
+
+
+## Review
+
+- **Parameter**: A population level summary of data
+  + $\mu$: Population mean
+  + $\pi$: Population proportion
+
+- **Statistic**: A sample level summary of data
+  + $\bar{x}$: Sample mean
+  + $\hat{p}$: Sample proportion
+
+
+
+## Test a Claim
+
+In research we often want to test a claim:
+
+- Is the true average body temperature really 98.6?
+- Is 10% of the world left-handed?
+- Is a new treatment more effective than an old treatment for a particular disease?
+
+
+## How to Test a Claim
+
+To test a claim we often start by getting a sample of data from our population of interest. We then summarize the sample data to evaluate the claim. But do we need to account for?
+
+<br /><br />
+
+. . . 
+
+
+SAMPLING VARIABILITY
+
+
+
+## Mini Example Scenario
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/08-01-mini-scenario.png")
+```
+
+
+## Recap
+
+What did we do on the last slide?
+
+- Considered the "existing standard"
+- Compared our sample to that "existing standard"
+- Decided whether our sample evidence "fits" with the "existing standard"
+- Did our sample evidence seem likely if that "existing standard" is true?
+
+
+## Review → Hypothesis Testing {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Purpose of Hypothesis Testing
+
+:::{.v-center-container}
+To [test a claim]{style="text-decoration: underline;"} about a [population parameter]{style="text-decoration: underline;"}
+:::
+
+
+## Steps of Hypothesis Testing {#sec-slide-9}
+
+1. Formulate a **research question**
+2. Write your **hypotheses**
+3. Find **sampling distribution** assuming the null hypothesis is true
+4. **Compare** sample summary to the distribution under the null hypothesis
+5. Get a **_p_-value**
+6. Make a **decision** based on the *p*-value 
+7. Communicate your **conclusion** in context
+
+
+## Hypothesis Testing Example {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Step 1: Research Question
+
+:::{.v-center-container}
+Are 10% of people left-handed?
+:::
+
+
+## Step 2: Hypotheses
+
+<br />
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Null Hypothesis
+
+Usually a statement of no effect, no difference, "status quo" (a statement of equality)
+
+- The "dull" hypothesis
+- The "no change" or "no difference" hypothesis
+:::
+
+::: {.column width="50%"}
+### Alternative Hypothesis
+
+There is an effect or difference (a statement of inequality)
+
+- The "exciting" hypothesis
+- Often aligns with the researcher's hypothesis about an effect
+:::
+
+::::
+
+
+
+## Example Hypotheses
+
+<span style="color:#970E53;">**Null hypothesis**</span> (always uses an = sign)
+
+$$
+H_0:  \underbrace{\pi}_{\mathrm{Population~parameter\\(proportion~in~this~case)}} = \underbrace{0.10}_{\mathrm{Hypothesized~value}}
+$$
+
+<span style="color:#006C65;">**Alternative hypothesis**</span> (sign based on the research question)
+
+$$
+H_A: \pi \neq 0.10
+$$
+
+## Example Hypotheses (cntd.)
+
+In other cases the alternative might be:
+
+- $H_A: \pi < 0.1$
+- $H_A: \pi > 0.1$
+
+
+## Step 3: Sampling Distribution {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Referred to as a **sampling distribution** and is obtained by
+  + Simulation (next class)
+  + Mathematical formula (after next class)
+
+- Allows us to estimate the sampling variability we expect given our sample
+- Centered at the null hypothesized value
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| message: false
+library(ggplot2)
+library(ggprism)
+
+ggplot(data = data.frame(x = c(.025,.175)), aes(x)) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = 0.1, sd = .025)) + 
+  ylab("") +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(name = "Sample Proportion", breaks = c(.05, 0.1, .15)) +
+  theme_prism()
+```
+
+:::
+
+::::
+
+
+## Step 4: Compare Sample Statistic
+
+```{r}
+#| message: false
+ggplot(data = data.frame(x = c(.025,.175)), aes(x)) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = 0.1, sd = .025)) + 
+  ylab("") +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(name = "Sample Proportion", breaks = c(.05, 0.1, .15)) +
+  theme_prism() +
+  geom_segment(x = 0.13, xend = 0.13, y = -1, yend = 14, color = "#FF2F92") +
+  annotate("text", x = 0.13, y = 15, label = "hat(p)==0.13", parse = TRUE, color = "#FF2F92")
+```
+
+
+## Step 5: *p*-Value
+
+- Calculated based on the sampling distribution (based on the null hypothesis)
+- Tells us how likely our sample statistic is, given the null hypothesis is true
+- Compared to a *significance level* or alpha-value (typically $\alpha = 0.05$)
+
+
+## Step 6: Decision
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/08-02-decision-criteria.png")
+```
+
+
+## Step 7: Conclusion
+
+- If we REJECT the null hypothesis → we conclude in favor of the alternative hypothesis (often called "statistical significance," although a better term may be "statistical discernibility")
+- If we DO NOT REJECT the null hypothesis → we conclude there is NOT enough evidence to reject the null hypothesis
+
+
+## Example Conclusion
+
+Recall the research question (Are 10% of people left-handed?) and statistcal hypotheses:
+
+$$
+\begin{split}
+H_0: \pi &= 0.10 \\
+H_A: \pi &\neq 0.10
+\end{split}
+$$
+
+- Suppose our *p*-value was 0.230.
+- Since this is larger then 0.05 (our alpha value):
+  + We decide to not reject the null hypothesis.
+  + There is NOT enough evidence to conclude that the proportion of people who are left-handed is different from 0.10.
+
+
+## Hypothesis Testing Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- There are many steps to the hypothesis test (overview on [Slide 9](#sec-slide-9)).
+- Hypothesis tests help us test a claim while taking into account sampling variability.
+- They provide one form of evidence to help answer a research question.
+
+
+
+
+

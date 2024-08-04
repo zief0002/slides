@@ -1,0 +1,256 @@
+---
+title: "Day 06<br />Describing Distributions"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Name and describe the three key features of a distribution.
+- Identify and explain when to use the mean or median to describe the center of a distribution.
+- Identify and explain when to use the standard deviation or IQR to describe the variability of a distribution.
+- Describe distributions key features in the context of the data.
+
+
+<!-- ## Computing is fundamental to the practice of statistics and science more broadly. {.center background-image="figs/section-bg.png" background-size=contain} -->
+
+
+## RECALL: Graphs for Quantitative Variables
+
+```{r}
+#| message: false
+library(openintro)
+library(ggformula)
+lego = lego_sample
+```
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+gf_histogram(~price, data = lego)
+```
+
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+gf_density(~price, data = lego)
+```
+
+:::
+
+::::
+
+
+## Graphs for Quantitative Variables
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- These graphs allow us to see the distribution of the data.
+- We want to know what the variable "looks like".
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+gf_density(~price, data = lego)
+```
+:::
+
+::::
+
+
+<!-- ## Why R Studio? -->
+
+<!-- - It's free! -->
+<!-- - Open source -->
+<!-- - Point and click functionality makes it more user friendly than R alone. -->
+<!-- - Integration of code and text makes it easy to create reports -->
+<!-- - Supports reproducibility and open science goals  -->
+
+
+<!-- ## Reproducibility -->
+
+<!-- In general: -->
+
+<!-- - Experiments/studies repeated with the same methods and analysis should yield the same results. -->
+
+<!-- In computing: -->
+
+<!-- - Code and data should be provided alongside detailed documentation of analysis so that they can be repeated with the same results. -->
+
+
+<!-- ## R Studio & Programming Introduction {.center background-image="figs/section-bg.png" background-size=contain} -->
+
+
+<!-- ## R Studio Pane Layout: Pane 1 -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-03-r-studio-script-file.png") -->
+<!-- ``` -->
+
+<!-- ## R Studio Pane Layout: Pane 2 -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-04-r-studio-console.png") -->
+<!-- ``` -->
+
+
+<!-- ## R Studio Pane Layout: Pane 3 -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-05-r-studio-environment.png") -->
+<!-- ``` -->
+
+<!-- ## R Studio Pane Layout: Pane 4 -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-06-r-studio-files.png") -->
+<!-- ``` -->
+
+
+<!-- ## Protip -->
+
+<!-- You can change the location of the four panes by going to "Global Options > Pane Layout". -->
+
+
+
+<!-- ## Get the Course Data -->
+
+<!-- :::sticky-note -->
+<!-- **ONE TIME ONLY:** Download materials from the schedule page on the website. -->
+
+<!-- - There is a zipped folder containing the datasets (.csv). -->
+<!-- - Unzip the folder. -->
+<!-- ::: -->
+
+
+<!-- ## Put that folder somewhere easily accessible! -->
+
+<!-- :::: {.columns} -->
+
+<!-- ::: {.column width="50%"} -->
+<!-- Some suggestions: -->
+
+<!-- - Desktop -->
+<!-- - "Grad School" Folder -->
+<!-- - On your desktop? -->
+<!-- - In your cloud? -->
+<!-- ::: -->
+
+<!-- ::: {.column width="50%"} -->
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-07-folders.png") -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- :::: -->
+
+
+<!-- ## Workflow (a.k.a. steps to using R Studio) -->
+
+<!-- 1. Load libraries (*Be sure to install any libraries you do not have.*) -->
+<!-- 2. Import data -->
+<!-- 3. Ready to perform analysis!  -->
+
+
+<!-- ## Open R Script File -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-03-r-studio-script-file.png") -->
+<!-- ``` -->
+
+
+<!-- ## Now we start computing...RECALL {.center background-image="figs/section-bg.png" background-size=contain} -->
+
+<!-- ## Functions -->
+
+<!-- - To perform analyses on your data in R, you will need to use *functions*. -->
+<!-- - Functions tell R Studio what to do with your data. -->
+<!-- - Remember, functions have this structure:  -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- function_name() -->
+<!-- ``` -->
+
+<!-- - They contain one or more arguments, which specify options for the function. -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- function_name(argument1, argument2, argument3) -->
+<!-- ``` -->
+
+
+<!-- ## Libraries/Packages -->
+
+<!-- - Functions live in **libraries** (a.k.a., **packages**) -->
+<!-- - Some packages come with your R and others need to be installed.  -->
+<!-- - Install the `{ggformula}` and `{tidyverse}` packages. -->
+
+<!-- :::sticky-note -->
+<!-- Reminder: Use the **Install** button in the **Packages tab** in RStudio. -->
+<!-- You will only need to install the package once! -->
+<!-- ::: -->
+
+<!-- --- -->
+
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- knitr::include_graphics("figs/03-08-installing-packages.png") -->
+<!-- ``` -->
+
+
+<!-- ## Using Multiple Functions -->
+
+<!-- Functions can be chained together so that the output of one function is sent to another function. -->
+
+<!-- <br /><br /> -->
+
+<!-- ```{r} -->
+<!-- #| eval: false -->
+<!-- #| echo: true -->
+<!-- butter_bread(type = "wheat") + -->
+<!-- add_cheese(flavor = "colby") + -->
+<!-- fry_sandwich(time = 6) -->
+<!-- ``` -->
+
+
+<!-- ## Grilled Cheese Activity (cntd.) -->
+
+<!-- Complete Parts 2 and 3 of the activity. -->
+
+
+<!-- ## Looking Ahead -->
+
+<!-- - We will write functions like this in class. -->
+<!-- - We will use R Studio for writing and analyzing code. -->
+<!-- - You will always be given functions. -->
+<!-- - You will need to be precise when writing code and checking for bugs. -->
+<!--   + Bugs are a normal part of the coding process! -->
+
