@@ -36,7 +36,6 @@ To [test a claim]{style="text-decoration: underline;"} about a [population param
 
 1. Formulate a **research question**
 2. Write your **hypotheses**
-3. [Find **sampling distribution** assuming the null hypothesis is true]{.rn rn-type=highlight rn-multiline=true}
 3. <mark>Find **sampling distribution** assuming the null hypothesis is true</mark>
 4. **Compare** sample summary to the distribution under the null hypothesis
 5. Get a **_p_-value**
@@ -244,7 +243,7 @@ ggplot(data = data.frame(x = c(-5,5)), aes(x)) +
 - There are many steps to the hypothesis test (overview on [Slide 9](#sec-slide-9)).
 - Hypothesis tests help us test a claim while taking into account sampling variability.
 - They provide one form of evidence to help answer a research question.
-- <mark>We can use a t-distribution to help us conduct our test as an alternative method to simulation.</mark>
+- <mark>We can use a *t*-distribution to help us conduct our test as an alternative method to simulation.</mark>
 
 
 

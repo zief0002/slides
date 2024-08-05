@@ -35,7 +35,6 @@ To [test a claim]{style="text-decoration: underline;"} about a [population param
 
 1. Formulate a **research question**
 2. Write your **hypotheses**
-3. [Find **sampling distribution** assuming the null hypothesis is true]{.rn rn-type=highlight rn-multiline=true}
 3. <mark>Find **sampling distribution** assuming the null hypothesis is true</mark>
 4. **Compare** sample summary to the distribution under the null hypothesis
 5. Get a **_p_-value**

@@ -13,13 +13,13 @@ format:
 3. [Introduction to R and R Studio](d03-introduction-to-r-and-rstudio.html)
 4. Data and Codebooks
 5. Variables and Graphs
-6. Describing Distributions
+6. [Describing Distributions](d06-describing-distributions.html)
 7. [Estimating Uncertainty](d07-estimating-uncertainty.html)
 8. [Introduction to Hypothesis Testing](d08-introduction-to-hypothesis-testing.html)
 9. [Simulation-Based Hypothesis Testing](d09-simulation-based-hypothesis-testing.html)
 10. [Study Design: Generalizability](d10-study-design-generalizability.qmd)
 11. [Hypothesis Testing with the T-distribution](d11-hypothesis-testing-with-the-t-distribution.html)
-12. Hypothesis Testing for Proportions
+12. [Hypothesis Testing for Proportions](d12-hypothesis-testing-for-proportions.html)
 13. Study Design: Causal Claims
 14. Hypothesis Testing for Comparing Two Means
 15. Hypothesis Testing for Comparing Two Proportions

@@ -1,0 +1,275 @@
+---
+title: "Day 06<br />Describing Distributions"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Name and describe the three key features of a distribution.
+- Identify and explain when to use the mean or median to describe the center of a distribution.
+- Identify and explain when to use the standard deviation or IQR to describe the variability of a distribution.
+- Describe distributions key features in the context of the data.
+
+
+<!-- ## Computing is fundamental to the practice of statistics and science more broadly. {.center background-image="figs/section-bg.png" background-size=contain} -->
+
+
+## RECALL: Graphs for Quantitative Variables
+
+```{r}
+#| message: false
+library(openintro)
+library(ggformula)
+lego = lego_sample
+```
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### Histogram
+
+```{r}
+#| echo: true
+gf_histogram(~price, data = lego)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+### Density Plot
+
+```{r}
+#| echo: true
+gf_density(~price, data = lego)
+```
+
+:::
+
+::::
+
+
+## Graphs for Quantitative Variables
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- These graphs allow us to see the distribution of the data.
+- We want to know what the variable "looks like".
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+gf_density(~price, data = lego)
+```
+:::
+
+::::
+
+
+## What is the big difference between these two graphs?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
+gf_density(~x, data = symmetric, xlab = "Variable X")
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+skewed <- data.frame(y = rbeta(10000,100,2))
+skewed[1] <- skewed[1]*(10+0.08)
+
+gf_density(~y, data = skewed, xlab = "Variable Y")
+```
+
+:::
+
+::::
+
+
+## Shape of a Distribution
+
+::: {.panel-tabset}
+
+### Symmetric
+
+```{r}
+gf_density(~x, data = symmetric, xlab = "Variable X")
+```
+
+
+### Skewed Right
+
+The tail is on the right.
+
+```{r}
+skewed_right <- data.frame(y = rbeta(10000,100,2))
+skewed_right[1] <- skewed_right[1]*-1
+
+gf_density(~y, data = skewed_right, xlab = "Variable Y")
+```
+
+
+### Skewed Left
+
+The tail is on the left.
+
+```{r}
+skewed_right <- data.frame(y = rbeta(10000,100,2))
+gf_density(~y, data = skewed_right, xlab = "Variable Y")
+```
+
+:::
+
+
+## Modality
+
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+#| out-width: "100%"
+# Uniform
+uni <- data.frame(v = runif(10000, 0, 30))
+p1 = gf_density(~ v, data = uni, xlab = "Variable V") +
+  annotate("text", x = 15, y = 0.015, label = "Uniform", size = 10)
+
+# Unimodal
+p2 = gf_density(~x, data = symmetric, xlab = "Variable X") +
+  annotate("text", x = 10, y = 0.013, label = "Unimodal", size = 10)
+
+# Bimodal
+library(truncnorm)
+nn <- 1e4
+set.seed(1)
+sims <- c(rtruncnorm(nn/2, a=1, b=5, mean=2, sd=.5),
+                    rtruncnorm(nn/2, a=1, b=5, mean=4, sd=.5))
+sims<- data.frame(sims)
+p3 = gf_density(~sims, data = sims, xlab = "Variable Y") +
+  annotate("text", x = 3, y = 0.07, label = "Bimodal", size = 10)
+
+# Multimodal
+symmetric <- c(rnorm(10000, mean = 10, sd = 2))
+symmetric2 <- c(rnorm(10000, mean = 20, sd = 5))
+symmetric3 <- c(rnorm(10000, mean = 40, sd = 2))
+newdat <- data.frame(w = c(symmetric, symmetric2, symmetric3))
+p4 = gf_density(~w, data = newdat, xlab = "Variable W")  +
+  annotate("text", x = 25, y = 0.045, label = "Multimodal", size = 10)
+
+library(patchwork)
+(p1 | p2) / (p3 | p4)
+```
+
+
+## What is the big difference between these two graphs?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
+gf_density(~x, data = symmetric, xlab = "Variable X")
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+symmetric2 <- data.frame(x = rnorm(10000, mean = 20, sd = 5))
+gf_density(~x, data = symmetric2, xlab = "Variable X")
+```
+
+:::
+
+::::
+
+
+## Center
+
+- A value in the distribution that is "typical"
+- Often measured by the:
+  + **Mean:** Average of all data points
+  + **Median:** Middle value of the data (if put in numerical order)
+
+
+## What is the big difference between these two graphs?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
+gf_density(~x, data = symmetric, xlab = "Variable X") +
+  xlim(-10, 30)
+```
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+symmetric3 <- data.frame(x = rnorm(10000, mean = 10, sd = 1))
+gf_density(~x, data = symmetric3, xlab = "Variable X") +
+  xlim(-10, 30)
+```
+
+:::
+
+::::
+
+
+## Variability
+
+- A measure of how distinct the points in your dataset are
+- Often measured by the:
+  + **Range:** The distance between the smallest and largest data value
+  + **Standard deviation:** A measure of the average distance each point is from the mean
+  + **IQR:** The distance between the the 25th and 75th percentile values (i.e., middle 50% of the data)
+
+
+## Describing Distributions Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary {.smaller}
+
+- The three key features of a distribution
+  + Shape: symmetric/skewed? Unimodal/bimodal?
+  + Center: at what single point is most of the data?
+  + Variability: what range best describes where the majority of the data falls?
+- When to use the mean or median to describe the center of a distribution
+  + If we have a skewed distribution we will use the median to describe the center
+  + If we have a symmetric distribution we could use either mean or median, but the mean is the most often used
+- When to use the standard deviation or IQR to describe the variability of a distribution
+  + If we have a skewed distribution we will use the IQR to describe the variability 
+  + If we have a symmetric distribution we could use either IQR or standard deviation, but typically we use the standard deviation
+
