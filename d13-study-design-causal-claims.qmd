@@ -1,0 +1,91 @@
+---
+title: "Day 13<br />Study Design: Causal Claims"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Describe the benefits of randomly assigning participants to treatment groups.
+
+
+## Drawing Causal Conclusions from a Study {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## When can we make a causal claim?
+
+- In a lot of research we are interested in making a causal claim.
+  + **Example:** This curriculum improved learning!
+- To be able to make this claim we need to be confident there aren't any other factors that actually influenced the outcome!
+
+
+## When can we make a causal claim? 
+
+To mitigate uncertainty about external factors we want to compare equivalent groups. {.v-center-container}
+
+
+## Ideally...
+
+We have two identical groups (think identical twins). One group is given the treatment and the other isn't (the control group---often given a placebo). That is the only difference between them.
+
+```{r}
+#| echo: false
+#| fig-align: "center"
+knitr::include_graphics("figs/13-01-identical-groups.png")
+```
+
+If there is a difference between the groups in the end, we can be confident it was from the treatment!
+
+
+## Identical Groups?
+
+- We can't create identical groups ... necessarily.
+- Instead, we create *probabilistically equivalent* groups.
+  + a.k.a. Mathematically equivalent groups
+- These groups are, on average, the SAME on all characteristics (observable and not observable).
+- To do this we randomly assign people to be in the treatment group and the control/placebo group.
+- You will explore this in an activity!
+
+
+## Social Media Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Random Assignment
+
+- The process of random assignment creates, on average, groups that are "identical".
+- It doesn't do this perfectly every time we create groups, but on average it does---and that is good enough!
+- Creating groups through <mark>random assignment is the gold standard</mark> for making causal claims.
+- There are more advanced methods, but we won't get to those in this course.
+
+
+## Can you make a causal claim?
+
+```{r}
+#| fig-align: "center"
+knitr::include_graphics("figs/13-02-causal-claim.png")
+```
+
+
+## Summary
+
+- Randomly assigning participants to groups allows us to create groups that are probabilistically equivalent.
+  + The same on average
+- This allows us to infer that our treatment was the only cause of a difference between the groups (if a difference is detected).
+  + Then we can make a causal claim
+
+
+
+
+

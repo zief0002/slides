@@ -20,7 +20,7 @@ format:
 10. [Study Design: Generalizability](d10-study-design-generalizability.qmd)
 11. [Hypothesis Testing with the T-distribution](d11-hypothesis-testing-with-the-t-distribution.html)
 12. [Hypothesis Testing for Proportions](d12-hypothesis-testing-for-proportions.html)
-13. Study Design: Causal Claims
+13. [Study Design: Causal Claims](d13-study-design-causal-claims.html)
 14. Hypothesis Testing for Comparing Two Means
 15. Hypothesis Testing for Comparing Two Proportions
 16. *No Class: Mental Health Day*
