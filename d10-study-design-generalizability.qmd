@@ -1,0 +1,76 @@
+---
+title: "Day 10<br />Study Design: Generalizability"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Describe the benefits of obtaining a random sample.
+
+
+
+## Purpose of Hypothesis Testing
+
+:::{.v-center-container}
+To [test a claim]{style="text-decoration: underline;"} about a [population parameter]{style="text-decoration: underline;"}
+:::
+
+
+## Steps of Hypothesis Testing {#sec-slide-9}
+
+1. Formulate a **research question**
+2. Write your **hypotheses**
+3. [Find **sampling distribution** assuming the null hypothesis is true]{.rn rn-type=highlight rn-multiline=true}
+3. <mark>Find **sampling distribution** assuming the null hypothesis is true</mark>
+4. **Compare** sample summary to the distribution under the null hypothesis
+5. Get a **_p_-value**
+6. Make a **decision** based on the *p*-value 
+7. Communicate your **conclusion** in context
+
+
+## Hypothesis Testing Example {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Generalizing from a Study {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## How did we collect our sample?
+
+- Ideally we want to generalize results from our population to more people than just our sample.
+- How we collected our sample might affect our results.
+  + **Example:** Sample people in the library about how much they study → might not generalize to the whole campus
+
+
+## Sampling Countries Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Can You Generalize?
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/10-01-generalization.png")
+```
+
+
+## Summary
+
+- Random samples provide unbiased estimates for the population.
+- This allows us to generalize our findings from our sample to the population the sample was draw from.
+
+
+
+
+

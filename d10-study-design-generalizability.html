@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="d09-simulation-based-hypothesis-testing_files/libs/clipboard/clipboard.min.js"></script>
-<script src="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/tabby.min.js"></script>
-<script src="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/popper.min.js"></script>
-<script src="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="d09-simulation-based-hypothesis-testing_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="d10-study-design-generalizability_files/libs/clipboard/clipboard.min.js"></script>
+<script src="d10-study-design-generalizability_files/libs/quarto-html/tabby.min.js"></script>
+<script src="d10-study-design-generalizability_files/libs/quarto-html/popper.min.js"></script>
+<script src="d10-study-design-generalizability_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="d10-study-design-generalizability_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="d10-study-design-generalizability_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="d10-study-design-generalizability_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="d10-study-design-generalizability_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <title>Day 09 Simulation-Based Hypothesis Testing</title>
+  <title>Day 10 Study Design: Generalizability</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="d10-study-design-generalizability_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="d10-study-design-generalizability_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,13 +29,13 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="d10-study-design-generalizability_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="d10-study-design-generalizability_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -327,7 +327,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="figs/title-bg.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Day 09<br>Simulation-Based Hypothesis Testing</h1>
+  <h1 class="title">Day 10<br>Study Design: Generalizability</h1>
   <p class="subtitle"><br><br>EPSY 5261 : Introductory Statistical Methods</p>
 
 <div class="quarto-title-authors">
@@ -338,9 +338,7 @@
 <h2>Learning Goals</h2>
 <p>At the end of this lesson, you should be able to …</p>
 <ul>
-<li>Describe the purpose of a hypothesis test.</li>
-<li>List the steps of a hypothesis test.</li>
-<li><mark>Describe a simulation approach to hypothesis testing</mark></li>
+<li>Describe the benefits of obtaining a random sample.</li>
 </ul>
 </section>
 <section id="purpose-of-hypothesis-testing" class="slide level2">
@@ -365,121 +363,31 @@
 <section id="hypothesis-testing-example" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
 <h2>Hypothesis Testing Example</h2>
 </section>
-<section id="estimating-sampling-variability" class="slide level2">
-<h2>Estimating Sampling Variability</h2>
+<section id="generalizing-from-a-study" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
+<h2>Generalizing from a Study</h2>
+</section>
+<section id="how-did-we-collect-our-sample" class="slide level2">
+<h2>How did we collect our sample?</h2>
 <ul>
-<li><strong>Goal:</strong> Get an estimate for the sampling variability expected given this sample
+<li>Ideally we want to generalize results from our population to more people than just our sample.</li>
+<li>How we collected our sample might affect our results.
 <ul>
-<li><mark>Simulation (resampling methods)</mark></li>
-<li>Traditional Parametric Methods (a mathematical function)</li>
+<li><strong>Example:</strong> Sample people in the library about how much they study → might not generalize to the whole campus</li>
 </ul></li>
 </ul>
 </section>
-<section id="recall-day-5-activity" class="slide level2">
-<h2>Recall: Day 5 Activity</h2>
-<ul>
-<li>We have used simulation to get an estimate for variability before!</li>
-<li>We will do the same process here with 1 minor change to ensure we are centered at the null hypothesized value (not out sample statistic).</li>
-</ul>
+<section id="sampling-countries-activity" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
+<h2>Sampling Countries Activity</h2>
 </section>
-<section id="sampling-distribution" class="slide level2">
-<h2>Sampling Distribution</h2>
-<ul>
-<li>Recall: in the Day 5 activity when we resampled we had a distribution centered at the sample statistic.</li>
-<li>In hypothesis testing we want a distribution centered at the null hypothesized value.</li>
-</ul>
-</section>
-<section id="example" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
-<h2>Example</h2>
-</section>
-<section id="step-1-research-question" class="slide level2">
-<h2>Step 1: Research Question</h2>
-<p>A data scientist collected data from a sample of 50 married U.S. men and found their average age of marriage was 32 years. However, data from a national survey in 2015 suggests the average age men get married in the U.S is 29 years. You are now curious if the average age for men to marry has increased.</p>
-<p><br></p>
-<p><strong>Research Question:</strong> Is the average age men in the U.S. marry greater than 29 years?</p>
-</section>
-<section id="step-2-statistical-hypotheses" class="slide level2">
-<h2>Step 2: Statistical Hypotheses</h2>
-<p><span class="math display">\[
-\begin{split}
-H_0: \mu &amp;= 29 \\[2ex]
-H_A: \mu &amp;&gt; 29
-\end{split}
-\]</span></p>
-</section>
-<section id="step-3-sampling-distribution" class="slide level2">
-<h2>Step 3: Sampling Distribution</h2>
-<ul>
-<li><strong>GOAL:</strong> We want to know what are possible values for the sample mean if the null hypothesis is true.</li>
-<li>One method for this is to sample with replacement from a dataset with the same mean as our null hypothesis.</li>
-<li>To preserve the variability of our original sample, we can use our sample and adjust it to have a mean of 29.</li>
-</ul>
-</section>
-<section id="step-3-sampling-distribution-cntd." class="slide level2">
-<h2>Step 3: Sampling Distribution (cntd.)</h2>
-<ul>
-<li>Our sample mean is 32</li>
-<li>The hypothesized mean from the null hypothesis is 29</li>
-<li>To go from 32 to 29, we need to shift our data by <span class="math inline">\(-3\)</span> (<span class="math inline">\(29-32= -3\)</span>)</li>
-</ul>
-</section>
-<section id="step-3-sampling-distribution-cntd.-1" class="slide level2">
-<h2>Step 3: Sampling Distribution (cntd.)</h2>
-<ul>
-<li>Sample Data: 30, 34, 29, 30, …</li>
-</ul>
-<p><br></p>
-<p>Shift by <span class="math inline">\(-3\)</span></p>
-<p><br></p>
-<ul>
-<li>Adjusted Data: 27, 31, 26, 27, …</li>
-</ul>
-</section>
-<section id="step-3-sampling-distribution-cntd.-2" class="slide level2">
-<h2>Step 3: Sampling Distribution (cntd.)</h2>
-<p>Then we can sample with replacement from this adjusted sample, and calculate the mean. We repeat this process until we have MANY means. This will give us a sense of what mean ages we would expect if the true average age is 29.</p>
-</section>
-<section id="step-3-sampling-distribution-cntd.-3" class="slide level2">
-<h2>Step 3: Sampling Distribution (cntd.)</h2>
+<section id="can-you-generalize" class="slide level2">
+<h2>Can You Generalize?</h2>
 
-<img data-src="figs/09-01-sampling-distribution.png" width="1362" class="r-stretch"></section>
-<section id="step-4-compare-sample-statistic" class="slide level2">
-<h2>Step 4: Compare Sample Statistic</h2>
-
-<img data-src="figs/09-02-compare-sample-statistic.png" width="1336" class="r-stretch"></section>
-<section id="step-5-p-value" class="slide level2">
-<h2>Step 5: <em>p</em>-Value</h2>
-<p>Recall: The <em>p</em>-value tells us how likely our sample mean (or one that is more extreme) is, if the null hypothesis is true.</p>
-<ul>
-<li>In other words, if the true mean is 29, the the <em>p</em>-value quantifies the chance we get a sample mean of 32 or greater.</li>
-<li>R Studio will calculate this for us.</li>
-<li>In our example, <span class="math inline">\(p=0.0018\)</span>.</li>
-</ul>
-</section>
-<section id="step-6-decision" class="slide level2">
-<h2>Step 6: Decision</h2>
-<ul>
-<li>This is a <strong>small</strong> <em>p</em>-value (smaller then our <span class="math inline">\(\alpha\)</span>-value of 0.05).</li>
-<li>This gives us a lot of evidence against the null hypothesis</li>
-<li>So we <strong>reject the null hypothesis</strong>.</li>
-</ul>
-</section>
-<section id="step-7-conclusion-in-context" class="slide level2">
-<h2>Step 7: Conclusion (in Context)</h2>
-<ul>
-<li>We have evidence that the true average age of men when they get married is likely greater than 29.</li>
-</ul>
-</section>
-<section id="simulation-based-hypothesis-testing-activity" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
-<h2>Simulation-Based Hypothesis Testing Activity</h2>
-</section>
+<img data-src="figs/10-01-generalization.png" width="1850" class="r-stretch"></section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
 <ul>
-<li>There are many steps to the hypothesis test (overview on <a href="#/sec-slide-9">Slide 9</a>).</li>
-<li>Hypothesis tests help us test a claim while taking into account sampling variability.</li>
-<li>They provide one form of evidence to help answer a research question.</li>
-<li><mark>Simulation is one method to conduct a hypothesis test (it helps us estimate sampling variability and visualize the null hypothesized model).</mark></li>
+<li>Random samples provide unbiased estimates for the population.</li>
+<li>This allows us to generalize our findings from our sample to the population the sample was draw from.</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -491,20 +399,20 @@ H_A: \mu &amp;&gt; 29
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="d09-simulation-based-hypothesis-testing_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="d10-study-design-generalizability_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
