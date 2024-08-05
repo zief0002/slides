@@ -18,10 +18,10 @@ format:
 8. [Introduction to Hypothesis Testing](d08-introduction-to-hypothesis-testing.html)
 9. [Simulation-Based Hypothesis Testing](d09-simulation-based-hypothesis-testing.html)
 10. [Study Design: Generalizability](d10-study-design-generalizability.qmd)
-11. [Hypothesis Testing with the T-distribution](d11-hypothesis-testing-with-the-t-distribution.html)
+11. [Hypothesis Testing with the *t*-Distribution](d11-hypothesis-testing-with-the-t-distribution.html)
 12. [Hypothesis Testing for Proportions](d12-hypothesis-testing-for-proportions.html)
 13. [Study Design: Causal Claims](d13-study-design-causal-claims.html)
-14. Hypothesis Testing for Comparing Two Means
+14. [Hypothesis Testing for Comparing Two Means](d14-hypothesis-testing-for-comparing-two-means.html)
 15. Hypothesis Testing for Comparing Two Proportions
 16. *No Class: Mental Health Day*
 17. Introduction to Confidence Intervals
