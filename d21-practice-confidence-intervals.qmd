@@ -1,0 +1,32 @@
+---
+title: "Day 21<br />Practice: Confidence Intervals"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Identify what type of confidence interval to create to answer a research question.
+- Know how to use R Studio to create your desired confidence interval.
+
+
+## Confidence Interval Practice Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Write your final confidence interval interpretations on the white board for your group. {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+
+
+

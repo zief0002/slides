@@ -17,18 +17,18 @@ format:
 7. [Estimating Uncertainty](d07-estimating-uncertainty.html)
 8. [Introduction to Hypothesis Testing](d08-introduction-to-hypothesis-testing.html)
 9. [Simulation-Based Hypothesis Testing](d09-simulation-based-hypothesis-testing.html)
-10. [Study Design: Generalizability](d10-study-design-generalizability.qmd)
+10. [Study Design: Generalizability](d10-study-design-generalizability.html)
 11. [Hypothesis Testing with the *t*-Distribution](d11-hypothesis-testing-with-the-t-distribution.html)
 12. [Hypothesis Testing for Proportions](d12-hypothesis-testing-for-proportions.html)
 13. [Study Design: Causal Claims](d13-study-design-causal-claims.html)
 14. [Hypothesis Testing for Comparing Two Means](d14-hypothesis-testing-for-comparing-two-means.html)
-15. Hypothesis Testing for Comparing Two Proportions
+15. [Hypothesis Testing for Comparing Two Proportions](d15-hypothesis-testing-for-comparing-two-proportions.html)
 16. *No Class: Mental Health Day*
-17. Introduction to Confidence Intervals
-18. Confidence Intervals for a Single Mean
-19. Confidence Intervals for a Single Proportion
+17. [Introduction to Confidence Intervals](d17-introduction-to-confidence-intervals.html)
+18. [Confidence Intervals for a Single Mean](d18-confidence-interval-for-a-single-mean.html)
+19. [Confidence Intervals for a Single Proportion](d19-confidence-interval-for-a-single-proportion.html)
 20. Confidence Intervals for Comparing Two Groups
-21. Practice Confidence Intervals
+21. [Practice Confidence Intervals](d21-practice-confidence-intervals.html)
 22. Exploring Effect Size
 23. Introduction to Correlation
 24. Introduction to Simple Linear Regression
@@ -37,3 +37,4 @@ format:
 27. Assumptions for Linear Regression
 28. Linear Regression: Practice
 29. TBA
+

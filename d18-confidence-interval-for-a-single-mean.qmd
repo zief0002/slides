@@ -1,0 +1,141 @@
+---
+title: "Day 18<br />Confidence Interval for a Single Mean"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Identify when to answer a research question with a confidence interval.
+- Explain the need for creating a confidence interval to do statistical inference.
+- Know how to calculate a confidence interval by hand and using R Studio.
+- Interpret a confidence interval.
+- <mark>Explain how the confidence level we choose affects our interval.</mark>
+
+
+## Inferential Methods
+
+- Hypothesis Testing
+  + Answers a yes/no type question
+  + Example: Is the average movie length longer than 110 minutes?
+- Confidence Intervals
+  + Provides us an estimate taking into account uncertainty
+  + Example: How long is the average movie?
+
+
+## Confidence Intervals
+
+- We have uncertainty in our sample estimates because of sampling variability (i.e., samples vary)
+- We need something to quantify the uncertainty in our estimates.
+
+...
+
+→ Confidence Intervals
+
+
+## Methodology for a Confidence Interval
+
+$$
+95\%~\text{CI} = \text{Sample Statistic} \pm \underbrace{(2 \times SE)}_{\text{Margin of Error}} 
+$$
+- To get a confidence interval, we add and subtract <mark>a specified number</mark> of standard errors from the sample statistic.
+
+
+## Determining the SE Multiplier
+
+- Adding and subtracting 2 standard errors gives an estimate for the margin of error.
+- In practice, we determine the exact multiplier used in the margin of error by using the *t*-distribution (for CI for means)
+
+
+## Use *t*-Distribution {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Assumptions 
+
+- Data comes from a population with a normal distribution.
+- We can proceed if the distribution of the sample looks reasonably normal...OR...
+  + If the sample size is large enough ($>30$; CLT)
+  + In practice, better to use a simulation method to get the standard error (then we don't need to worry about sample size)
+- Independence: must have independent observations
+
+
+## Formula
+
+$$
+\text{CI} = \bar{x} \pm (t^* \times \text{SE})
+$$
+
+## Table 19.1 in Textbook
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/18-01-ci-table.png")
+```
+
+
+## Formula (Update)
+
+$$
+\text{CI} = \bar{x} \pm (t^* \times \frac{\text{SD}}{\sqrt{n}})
+$$
+
+
+## What is $t^*$?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Recall the *t*-distribution (same one as used for *t*-test).
+  + We need to know our degrees of freedom (df)
+- We will use this to find the $t^*$ value based on the desired confidence level.
+:::
+
+::: {.column width="50%"}
+```{r}
+library(ggplot2)
+library(ggprism)
+ggplot(data = data.frame(x = c(-4,4)), aes(x)) +
+  stat_function(fun = dt, n = 101, args = list(df = 19), color = "#621448") + 
+  ylab("") +
+  scale_y_continuous(breaks = NULL) +
+  scale_x_continuous(name = "t-value", breaks = -4:4, limits= c(-3, 3)) +
+  theme_prism() +
+  annotate("text", x = 0, y = 0.05, label = "t(df=19)", color = "#621448")
+```
+:::
+
+::::
+
+
+## Example: $t^*$ for a 95% Confidence Interval
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/18-02-t-19.png")
+```
+
+
+
+## Confidence Interval for a Single Mean Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- For a research question asking for an estimate, the best way to answer is with a confidence interval.
+- The confidence interval allows us to account for uncertainty by including sampling variability in our estimate of the parameter. 
+- <mark>With a higher confidence level we expect a larger confidence interval (more uncertainty in the estimate).</mark>
+
+
+
