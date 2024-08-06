@@ -29,7 +29,7 @@ format:
 19. [Confidence Intervals for a Single Proportion](d19-confidence-interval-for-a-single-proportion.html)
 20. Confidence Intervals for Comparing Two Groups
 21. [Practice Confidence Intervals](d21-practice-confidence-intervals.html)
-22. Exploring Effect Size
+22. [Exploring Effect Size](d22-exploring-effect-size.html)
 23. Introduction to Correlation
 24. Introduction to Simple Linear Regression
 25. Hypothesis Test for a Slope

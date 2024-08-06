@@ -1,0 +1,108 @@
+---
+title: "Day 22<br />Exploring Effect Size"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Explain what an effect size is.
+- Explain why we use standardized effect sizes.
+- Compute syandardized effect sizes and their confidence intervals using R Studio.
+
+
+## But first --- you have 15 minutes
+
+- Create a concept map to answer the following questions: 
+  + When do I use a *t*- vs. *z*-test?
+  + When do I compute a confidence interval vs. a hypothesis test?
+  + When do I use the "pipe", (this thing `|` ) in my code?
+  
+
+## Example: SAT Math Prep Course
+
+- Suppose that students who took an SAT math prep course scored significantly higher than those who did not ($p < .0000001$).
+- HOWEVER, suppose the 95% confidence interval for the difference in mean scores between those who took the course and those who did not was $4 \pm 2$ points (out of 800 total).
+- Would you pay for the course?
+
+
+## Effect Size
+
+- The *p*-value tells us the strength of evidence against a null hypothesis of no effect, or no difference.
+  + Smaller *p*-value = stronger evidence against null hypothesis).
+- The *p*-value does NOT tell us how large the difference is (or how strong the relationship is).
+
+
+## Effect Size (cntd.)
+
+- Effect size is a term used to describe a family of indices that characterize the extent to which sample results diverge from the expectations specified in the null hypothesis.
+  + In the SAT example the effect is 4 points (the estimated difference)
+- Confidence intervals provide an estimate of the effect accounting for uncertainty
+
+
+## Standardized Effect Size
+
+- Sometimes the metric we are using in an analysis is hard to interpret.
+  + Is a distance of 1.5 Smoots small? Big?
+- When this is the case, using *standardized effect sizes* makes the difference between means or proportions more interpretable.
+
+
+## Standardized Effect Size for Difference in Means
+
+- Cohen's *d*
+
+$$
+d = \frac{x_1 - x_2}{s}
+$$
+
+where
+
+$$
+s = \frac{s_1+s_2}{2}
+$$
+
+
+## Standardized Effect Size for Difference in Proportions
+
+- Cohen's *h*
+
+$$
+h = 2\arcsin\bigg(\sqrt{\hat{p}_1}\bigg) -2\arcsin\bigg(\sqrt{\hat{p}_2}\bigg)
+$$
+
+
+## Standardized Effect Size for Difference in Proportions
+
+- Risk Ratio (a.k.a. Relative Risk)
+
+$$
+\text{Risk Ratio} = \frac{\hat{p}_1}{\hat{p}_2}
+$$
+
+- You can also compare to a hypothesized value.
+
+
+## Exploring Effect Sizes Activity<br />*(note this activity does not use real data)* {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- Effect size is a term used to describe a family of indices that characterize the extent to which sample results diverge from the expectations specified in the null hypothesis.
+- In comparing groups, an effect size tells us how large the difference is.
+- A standardized effect size gives us a meaningful way to discuss difference in means or proportions when the metric is hard to interpret.
+
+
+
+
+
