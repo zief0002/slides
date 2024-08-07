@@ -1,0 +1,221 @@
+---
+title: "Day 05<br />Variables and Graphs"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Describe the general structure of the case-by-attribute data set.
+  + What does a row represent? 
+  + What does a column represent?
+- Identify an attribute as categorical or quantitative.
+- Create graphs for each attribute type. 
+- Create summary statistics for each attribute type.
+
+
+## Data Structure {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Case-by-Attribute Structure
+
+```{r}
+knitr::include_graphics("figs/05-01-data.png")
+```
+
+
+## Data in R Studio
+
+```{r}
+knitr::include_graphics("figs/05-02-data-r.png")
+```
+
+
+## Attribute Types
+
+- Categorical
+  + Recorded as words (or categories/levels)
+  + Example: Highest Degree (High School, Bachelors, etc)
+
+- Quantitative
+  + Recorded as a number
+  + Example: Height (recorded in inches)
+
+
+## Categorical Attributes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- The `theme` attribute is a categorical attribute.
+- The first 6 cases in our data set are all DUPLO themed.
+
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("figs/05-03-categorical-attribute.png")
+```
+:::
+
+::::
+
+
+## Quantitative Attributes
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- The `pieces` attribute is a quantitative attribute.
+- The first case in our data set has 6 pieces.
+
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("figs/05-04-quantitative-attribute.png")
+```
+:::
+
+::::
+
+
+## Analytic Goal: Learn about Attributes
+
+- What is a typical value?
+- How much variation is there?
+
+
+. . .
+
+- Raw data is not useful for this
+- Summaries are better!
+  + Statistics
+  + Graphs
+
+
+## Summarizing and Visualizing Categorical Attributes {.center background-image="figs/section-bg.png" background-size=contain}
+
+```{r}
+#| message: false
+library(openintro)
+library(mosaic)
+library(ggformula)
+lego = lego_sample
+```
+
+
+## Summary Statistics for Categorical Attributes
+
+- Counts
+- Percents
+- Proportions
+
+```{r}
+#| echo: true
+# Counts
+df_stats(~theme, data = lego, "counts")
+
+# Proportions
+df_stats(~theme, data = lego, "props")
+```
+
+
+## Graphs for Categorical Data: Barchart
+
+```{r}
+#| echo: true
+gf_counts(~theme, data = lego)
+```
+
+
+## Horizontal Barchart
+
+```{r}
+#| echo: true
+gf_counts(~theme, data = lego) +
+  coord_flip()
+```
+
+
+## Add Axis Labels
+
+```{r}
+#| echo: true
+gf_counts(
+  ~theme, data = lego,
+  xlab = "Lego Theme",
+  ylab = "Count"
+  ) +
+  coord_flip()
+```
+
+
+- Note: The labels are assigned to the vertical barchart (default) and then get flipped when we use `coord_flip()`.
+
+
+## Other Graphs for Categorical Data
+
+- Pie Charts
+- Donut Charts
+
+
+## Summarizing and Visualizing Quantitative Attributes {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary Statistics for Quantitative Attributes
+
+- Typical value (i.e., measure of center)
+  + Mean
+  + Median
+
+
+```{r}
+#| echo: true
+# Summary statistics for price
+df_stats(~price, data = lego)
+```
+
+
+## Graphs for Quantitative Data: Histogram
+
+```{r}
+#| echo: true
+gf_histogram(~price, data = lego)
+```
+
+
+## Graphs for Quantitative Data: Density Plot
+
+```{r}
+#| echo: true
+gf_density(~price, data = lego)
+```
+
+
+## Other Graphs for Quantitative Data
+
+- Boxplots
+- Dotplots
+
+
+## Variables and Graphs Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- The case-by-attribute data structure includes cases (rows) and attributes (columns).
+- Attributes are either categorical (i.e., a word) or quantitative (i.e., a number).
+- We can create graphs for each variable type.
+- We can create summary statistics for each variable type.
+

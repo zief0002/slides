@@ -1,0 +1,109 @@
+---
+title: "Day 20<br />Confidence Interval for Comapring Two Groups"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Identify when to answer a research question with a confidence interval.
+- Explain the need for creating a confidence interval to do statistical inference.
+- <mark>Know how to calculate (by hand and using R Studio) and interpret a confidence interval for a difference in means and proportions.</mark>
+- Explain how the confidence level we choose affects our interval.
+
+
+## Confidence Intervals
+
+- We have uncertainty in our sample estimates because of sampling variability (i.e., samples vary)
+- We need something to quantify the uncertainty in our estimates.
+
+...
+
+→ Confidence Intervals
+
+
+## Confidence Interval for a Difference in Means {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Assumptions 
+
+- The distribution of values in both population is normally distributed.
+  + Note: If the sample size is greater than 30 in each group we can use the *t*-distribution without our sample being normally distributed (because of the Central Limit Theorem).
+- The values in both populations are independent from each other.
+- Both populations have the same variance (the larger variance not 4x larger than the smaller variance).
+
+
+## Formula
+
+- General CI formula: $\text{Estimate} \pm (t^* \times \text{SE})$
+- Estimate is the difference in sample means
+- SE comes from Table 19.1 in textbook
+
+
+$$
+\textrm{CI} = (\bar{x}_1-\bar{x}_2) \pm t*\sqrt{\frac{\text{SD}_{1}^2}{n_{1}} +\frac{\text{SD}_{2}^2}{n_{2} }}
+$$
+
+
+## Confidence Interval for a Difference in Proportions {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+
+## Assumptions 
+
+- The values in both populations can only take on 2 categories (e.g., "yes", "no").
+- The values in the population are independent from each other. 
+- Sample sizes for both groups is greater than 10
+
+$$
+\begin{split}
+n_1(\hat{p}_1) > 10 &\qquad n_1(1-\hat{p}_1) > 10\\
+n_2(\hat{p}_2) > 10 &\qquad n_2(1-\hat{p}_2) > 10
+\end{split}
+$$
+
+## Formula
+
+- General CI formula: $\text{Estimate} \pm (t^* \times \text{SE})$
+- Estimate is the difference in sample proportions
+- SE comes from Table 19.1 in textbook
+
+
+$$
+\text{CI} = (\hat{p}_{1} - \hat{p}_{2}) \pm z*\sqrt{\frac{\hat{p_1}(1-\hat{p_1})}{n_1} +\frac{\hat{p_2}(1-\hat{p_2})}{n_2} }
+$$
+
+
+<!-- ## Interpretation -->
+
+<!-- - When interpreting a CI you need to include: -->
+<!--   + <span style="color:#942192;">Confidence level</span> -->
+<!--   + <span style="color:#0433FF;">Population parameter</span> -->
+<!--   + <span style="color:#008F00;">Interval Estimate</span> -->
+
+<!-- **Example:** We are <span style="color:#942192;">95% confident</span> that the <span style="color:#0433FF;">proportion of people that are left handed</span> is between <span style="color:#008F00;">0.08 and 0.12</span>. -->
+
+
+## Confidence Interval for Comparing Groups Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- For a research question asking for an estimate, the best way to answer is with a confidence interval.
+- The confidence interval allows us to account for uncertainty by including sampling variability in our estimate of the parameter. 
+- With a higher confidence level we expect a larger confidence interval (more uncertainty in the estimate).
+
+
+

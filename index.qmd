@@ -11,8 +11,8 @@ format:
 1. Welcome to 5261
 2. [Introduction to Coding](d02-introduction-to-coding.html)
 3. [Introduction to R and R Studio](d03-introduction-to-r-and-rstudio.html)
-4. Data and Codebooks
-5. Variables and Graphs
+4. Data and Codebooks --- *No Slides*
+5. [Variables and Graphs](d05-variables-and-graphs.html)
 6. [Describing Distributions](d06-describing-distributions.html)
 7. [Estimating Uncertainty](d07-estimating-uncertainty.html)
 8. [Introduction to Hypothesis Testing](d08-introduction-to-hypothesis-testing.html)
@@ -27,7 +27,7 @@ format:
 17. [Introduction to Confidence Intervals](d17-introduction-to-confidence-intervals.html)
 18. [Confidence Intervals for a Single Mean](d18-confidence-interval-for-a-single-mean.html)
 19. [Confidence Intervals for a Single Proportion](d19-confidence-interval-for-a-single-proportion.html)
-20. Confidence Intervals for Comparing Two Groups
+20. [Confidence Intervals for Comparing Two Groups](d20-confidence-interval-for-comparing-two-groups.html)
 21. [Practice Confidence Intervals](d21-practice-confidence-intervals.html)
 22. [Exploring Effect Size](d22-exploring-effect-size.html)
 23. Introduction to Correlation
