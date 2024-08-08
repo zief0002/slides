@@ -1,0 +1,209 @@
+---
+title: "Day 23<br />Introduction to Correlation"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+```{r}
+#| message: false
+library(mosaic)
+library(ggformula)
+coffee = readr::read_csv("data/coffee-sales.csv")
+```
+
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Interpret scatterplots.
+- Explain when to use correlation to explain a relationship between variables.
+- Interpret a correlation.
+
+
+## Scatterplots {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Example
+
+Say you want to use the temperature to predict coffee sales at an outdoor stadium 
+
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/23-01-example.png")
+```
+
+
+## Scatterplot
+
+- A plot of the relationship between two quantitative variables.
+  + **Explanatory variable**: The variable you want to use as a predictor (goes on *x*-axis)
+  + **Response variable**: The variable you want to predict (goes on *y*-axis)
+
+
+## What pattern(s) do you see?
+
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw()
+```
+
+
+---
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/23-08-form-direction-strength.png")
+```
+
+---
+
+:::: {.columns}
+
+::: {.column width="30%"}
+- Form/Trend?
+- Direction?
+- Strength?
+
+:::
+
+::: {.column width="70%"}
+```{r}
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw()
+```
+:::
+
+::::
+
+
+## Correlation {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Correlation Coefficient (r)
+
+- Quantifies the strength and direction of linear relationship
+
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/23-02-correlation-coefficient.png")
+```
+
+
+## Car Correlation Example
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/23-03-car-correlations.png")
+```
+
+
+## Interpreting a Correlation
+
+- Direction: Positive or negative?
+  + If **positive**: As X increases, Y tends to increase.
+  + If **negative**: As X increases, Y tends to decrease.
+- How strong is the linear relationship?
+  + Weak (closer to 0)
+  + Moderate (somewhere in the middle --- maybe $\pm.4$ to $\pm.7$)
+  + Strong (closer to $\pm1$)
+
+
+## Form of the Relationship?
+
+The correlation tells us **nothing about the FORM** of the relationship.
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/23-04-correlation-form.png")
+```
+
+
+## Always Plot Your Data
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- You should always plot your data.
+- Summaries don't tell the whole story...
+- All of these plots have the same mean and SD (for both X and Y) and the same correlation coefficient. 
+
+:::
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("figs/23-05-same-summaries.png")
+```
+:::
+
+::::
+
+
+## Back to Our Example
+
+- Correlation between temperature and coffee sales is $r=-0.741$.
+- How would you interpret this correlation?
+
+
+## Correlation $\neq$ CAUSATION! {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+knitr::include_graphics("figs/23-06-causation-cartoon.png")
+``` 
+:::
+
+::: {.column width="50%"}
+There may be a confounding variable (a variable that impacts both the explanatory and response variables) that is explaining the relationship.
+
+```{r}
+knitr::include_graphics("figs/23-07-confounding.png")
+``` 
+:::
+
+::::
+
+
+## Other Fun Facts about Correlation
+
+- Correlation between X and Y = Correlation between Y and X (symmetric).
+- Correlation has no units.
+- If units change (e.g., kg to lbs), correlation stays the same!
+
+
+## Introduction to Correlation Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- We can use a correlation to describe a linear relationship between two quantitative variables.
+- A negative correlation implies a negative/indirect relationship.
+- A positive correlation implies a positive/direct relationship.
+- Correlation can only be between -1 and +1.
+- Correlations close to -1 or +1 are strong.
+- Correlations close to 0 are weak/non-existent.
+
+

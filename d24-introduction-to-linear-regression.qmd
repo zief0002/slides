@@ -1,0 +1,280 @@
+---
+title: "Day 24<br />Introduction to Linear Regression"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+---
+
+```{r}
+#| message: false
+library(mosaic)
+library(ggformula)
+coffee = readr::read_csv("data/coffee-sales.csv")
+```
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Explain when to use linear regression.
+- Write a linear regression equation.
+- Interpret the coefficients in a linear regression equation.
+- Calculate and interpret a residual.
+- Interpret an $R^2$ value.
+
+
+## If we have a linear relationship we might consider doing a linear regression. {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Regression Line
+
+- "Best fitting" line that describes the relationship between X and Y
+- "Best fit" = Line found by minimizing the squared vertical distances between the points and the line (least squares)
+
+
+```{r}
+#| fig-align: center
+knitr::include_graphics("figs/24-01-minimize.png")
+```
+
+
+## Linear Regression Equation
+
+- Remember equation for a line from high school math class: $y = mx + b$.
+
+$$
+\hat{y} = \underbrace{\beta_0}_{\text{Intercept}} + \underbrace{\beta_1}_{\text{Slope}}(x)
+$$
+
+## Example
+
+$$
+\widehat{\text{Coffees}} = 491 - 5.3(\text{Temperature})
+$$
+
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7")
+```
+
+
+## Using R Studio
+
+```{r}
+#| echo: true
+# Fit regression model
+lm.a = lm(coffee_sales ~ 1 + temperature, data = coffee)
+# Print regression results
+lm.a
+```
+
+
+## Interpreting the Intercept
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Intercept = 491
+- Where the regression line crosses *y*-axis at ($X=0$)
+- **Interpretation:** For a 0°F day, we predict an average of 491 coffees to be sold. 
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_vline(xintercept = 0) +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7") +
+  ggstar::geom_star(x = 0, y = lm.a$coefficients[[1]], size = 9, starshape = 1, color = "red", fill = "#EEFF41")
+```
+:::
+
+::::
+
+**Caution:** We shouldn't interpret an intercept if 0 is not within range of data (extrapolation).
+
+
+## Interpreting the Slope
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- $\text{Slope} = \frac{\text{Rise}}{\text{Run}} = \frac{\Delta Y}{\Delta X}$
+- Predicted change in Y as X increases by 1 unit.
+- **Interpretation:** For each additional degree of temperature, we expect about 5.3 **fewer** coffees to be sold, on average. 
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+
+y = predict(lm.a, newdata = data.frame(temperature = c(0, 20)))
+
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9", alpha = 0.1) +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7") +
+  geom_segment(x = 0, xend = 20, y = y[[1]], yend = y[[1]], color = "#0072B2") +
+  geom_segment(x = 20, xend = 20, y = y[[1]], yend = y[[2]], color = "#0072B2") +
+  annotate("text", x = 10, y = 505, label = "Run = +20", color = "#0072B2") +
+  annotate("text", x = 21, y = 437.3, label = "Rise = -106.86", color = "#0072B2", hjust = 0)
+```
+:::
+
+::::
+
+
+## Making Predictions Using Our Line {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- First: Beware of extrapolation!
+- Extrapolation is predicting Y values using X values that are outside the range of the data used to fit the regression. (NOT OK)
+- Can we predict coffee sales for:
+  + 40 degree days?
+  + 80 degree days? 
+  + 0 degree days?
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7")
+```
+:::
+
+::::
+
+
+## Making Predictions Using Our Line (cntd.)
+
+::::{.columns}
+
+::: {.column width="50%"}
+Predict about how many coffee sales to expect on a 40 degree day:
+
+$$
+\begin{split}
+\hat{y} &= 491 - 5.3*(40)\\
+&= 279
+\end{split}
+$$
+
+We predict 279 coffees will be sold on a 40°day, on average.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7")  +
+  geom_segment(x = 40, xend = -15, y = 277.0088, yend = 277.0088, color = "#0072B2") +
+  geom_segment(x = 40, xend = 40, y = 0, yend = 277.0088, color = "#0072B2")
+```
+:::
+
+::::
+
+
+## Model Fit {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Residuals
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- Residual (a.k.a. error, e) Difference between the observed and predicted values
+
+$$
+\begin{split}
+&e = y - \hat{y}\\
+&{\text{(in that order!)}}
+\end{split}
+$$ 
+:::
+
+::: {.column width="50%"}
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7") +
+  geom_label(x = 5, y = 150, label ="Negative Residual\n (below the line): We\n over-predicted", fill = "#6BC12E") +
+  geom_label(x = 50, y = 550, label ="Positive Residual\n (above the line): We\n under-predicted", fill = "#FE932D")
+```
+:::
+
+::::
+
+
+## Residuals (Example)
+
+- On a 40 degree day we predicted to sell 27,296 coffees on a 40°day. This is our $\hat{y}$ value. 
+- Suppose we actually observed 27,100 (y) coffees were sold.
+- What is the residual?
+  + Residual = $27,100 - 27,296 = -196$
+  + The linear model over-predicted the number of coffees sold by 196.
+
+
+
+## Coefficient of Determination ($R^2$)
+
+- $R^2$ = correlation squared
+- $R^2 = 0.741^2 = 0.549$ for coffee data
+- Idea of $R^2$: Coffee sales vary...how much of this variation can be explained by the linear relationship with temperature?
+  + 54.9% of the variation in coffee sales is explained by the linear relationship with temperature
+- $R^2$ quantifies how much of the total variability in our response variable (Y) can be explained by this linear regression on X.
+
+
+
+## Introduction to Linear Regression Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- We can create a least squares regression line to summarize the relationship between two quantitative variables.
+- We can interpret the slope and intercept of that line to describe that relationship.
+- We can use the regression line to make predictions.
+- We can use the $R^2$ value to tell us how much variability we are explaining in the Y variable be creating a linear regression with X.
+
+

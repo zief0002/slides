@@ -30,8 +30,8 @@ format:
 20. [Confidence Intervals for Comparing Two Groups](d20-confidence-interval-for-comparing-two-groups.html)
 21. [Practice Confidence Intervals](d21-practice-confidence-intervals.html)
 22. [Exploring Effect Size](d22-exploring-effect-size.html)
-23. Introduction to Correlation
-24. Introduction to Simple Linear Regression
+23. [Introduction to Correlation](d23-introduction-to-correlation.html)
+24. [Introduction to Linear Regression](d24-introduction-to-linear-regression.html)
 25. Hypothesis Test for a Slope
 26. *No Class: Thanksgiving Break*
 27. Assumptions for Linear Regression
