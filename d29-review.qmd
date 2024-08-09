@@ -1,0 +1,52 @@
+---
+title: "Day 29<br />Review"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+filters:
+  - line-highlight
+---
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Identify which method to use for a particular research question.
+
+
+---
+
+```{r}
+#| out-width: "100%"
+knitr::include_graphics("figs/29-01-table.png")
+```
+
+<!-- --- -->
+
+<!-- ```{r} -->
+<!-- #| out-width: "100%" -->
+<!-- knitr::include_graphics("figs/29-02-table-complete.png") -->
+<!-- ``` -->
+
+
+
+## More EPSY Statistics Courses
+
+- EPSY 5262: Continuation of this course 😃
+  + Focus on multiple linear regression & ANOVA
+- EPSY 5221: Measurement (Test design/Validity)
+- EPSY 5244: Survey Design
+- EPSY 8251/52: Advanced Statistical Methods
+  + More R Studio work
+  + Multiple Regression and Beyond
+
+
+

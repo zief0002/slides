@@ -1,0 +1,130 @@
+---
+title: "Day 27<br />Assumptions for Linear Regression"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+filters:
+  - line-highlight
+---
+
+```{r}
+#| message: false
+library(mosaic)
+library(ggformula)
+coffee = readr::read_csv("data/coffee-sales.csv")
+lm.a = lm(coffee_sales ~ 1 + temperature, data = coffee)
+```
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Check assumptions for a linear model.
+
+
+## Assumptions for a Linear Model
+
+- **L** ---	Pattern is linear (plot your data)
+- **I** ---	Observations are independent from each other (i.e., At a particular X value, one observation's Y value does not affect observations' Y values)
+- **N** --- The outcome variable is normally distributed 
+  + Some also add "no outliers"
+- **E** ---	Equal variance
+  + Variability in Y is constant at each X value (no fanning out of residuals on residual plot)
+
+
+
+## Linearity
+
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw()
+```
+
+
+## Independence
+
+- Consider all the coffee sales at a particular temperature
+- Reasonable to assume that one day's coffee sales does not affect another day's sales
+
+
+## Normality
+
+```{r}
+gf_histogram(~coffee_sales, data = coffee, color = "black", fill = "#2CCEF6")
+```
+
+
+## Equal Variance
+
+- Should see that the range of residuals is constant (about the same) at each X value
+
+```{r}
+#| message: false
+# Get residuals
+library(broom)
+out = augment(lm.a)
+
+# Residual plot
+gf_point(
+  .resid ~ temperature, data = out,
+  xlab = "Temperature",
+  ylab = "Residuals"
+  )
+```
+
+
+## A Residual Plot Showing Unequal Variance
+
+```{r}
+knitr::include_graphics("figs/27-01-fanning.png")
+```
+
+
+
+## Residual Plot to Evaluate Linearity
+
+- Random pattern around the line residual = 0
+- Means your model is not systematically over or under-predicting
+
+```{r}
+gf_point(
+  .resid ~ temperature, data = out,
+  xlab = "Temperature",
+  ylab = "Residuals"
+  )
+```
+
+
+## A Residual Plot Showing Non-linearity
+
+```{r}
+knitr::include_graphics("figs/27-02-nonlinearity.png")
+```
+
+
+## Assumptions for Linear Regression Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- For hypothesis test results for regression to be valid, we need to meet the following assumptions:
+  + Linearity
+  + Independence
+  + Normality
+  + Equal variances
+- The mnemonic LINE can be used to hep remember the assumptions.
+
+

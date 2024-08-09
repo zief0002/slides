@@ -32,9 +32,9 @@ format:
 22. [Exploring Effect Size](d22-exploring-effect-size.html)
 23. [Introduction to Correlation](d23-introduction-to-correlation.html)
 24. [Introduction to Linear Regression](d24-introduction-to-linear-regression.html)
-25. Hypothesis Test for a Slope
+25. [Hypothesis Test for a Slope](d25-hypothesis-test-for-a-slope.html)
 26. *No Class: Thanksgiving Break*
-27. Assumptions for Linear Regression
-28. Linear Regression: Practice
-29. TBA
+27. [Assumptions for Linear Regression](d27-assumptions-for-linear-regression.html)
+28. Linear Regression: Practice  --- *No Slides*
+29. TBA / [Review](d29-review.html)
 

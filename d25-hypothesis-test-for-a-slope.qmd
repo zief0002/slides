@@ -1,0 +1,83 @@
+---
+title: "Day 25<br />Hypothesis Test for a Slope"
+title-slide-attributes:
+  data-background-image: "figs/title-bg.png"
+  data-background-size: contain
+subtitle: "<br /><br />EPSY 5261 : Introductory Statistical Methods"
+format:
+  revealjs: 
+    theme: ["assets/epsy-5261-theme.scss"]
+    chalkboard: true
+highlight-style: nord
+code-line-numbers: false
+filters:
+  - line-highlight
+---
+
+```{r}
+#| message: false
+library(mosaic)
+library(ggformula)
+library(broom)
+coffee = readr::read_csv("data/coffee-sales.csv")
+```
+
+
+## Learning Goals
+
+At the end of this lesson, you should be able to ...
+
+- Conduct a hypothesis test for a slope coefficient.
+- Interpret results from a hypothesis test for a slope coefficient.
+
+
+## Recall: Linear Regression Equation
+
+
+$$
+\hat{y} = \underbrace{\beta_0}_{\text{Intercept}} + \underbrace{\beta_1}_{\text{Slope}}(x)
+$$
+
+```{r}
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 6
+gf_point(coffee_sales ~ temperature, data = coffee, size = 3, pch = 21, color = "black", fill = "#56B4E9") +
+  scale_x_continuous(name = "Temperature", breaks = seq(from = -20, to =70, by = 10)) +
+  scale_y_continuous(name = "Coffee Sales", breaks = seq(from = 0, to = 650, by = 50)) +
+  theme_bw() +
+  geom_smooth(method = "lm", se = FALSE, color = "#CC79A7")
+```
+
+
+## *t*-Test for a Slope
+
+- $H_0: \beta_1=0$
+  + The slope (in the population) equals 0. (i.e., There is no linear relationship between X and Y.)
+
+- $H_A: \beta_1\neq0$
+  + The slope (in the population) does not equal 0. (i.e., There is a linear relationship between X and Y.)
+
+
+## Using R Studio
+
+```{r}
+#| echo: true
+#| class-output: "highlight numberLines"
+#| output-line-numbers: "5"
+# Fit regression model
+lm.a = lm(coffee_sales ~ 1 + temperature, data = coffee)
+# See results of hypothesis test (Need broom package)
+tidy(lm.a)
+```
+
+
+## Hypothesis Test for a Slope Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+
+## Summary
+
+- If we want to determine if X is a statistically significant predictor of Y we can do a hypothesis test for the slope.
+- A small *p*-value tells us that there is evidence the slope is different than 0 (i.e., X is a predictor of Y).
+
+
