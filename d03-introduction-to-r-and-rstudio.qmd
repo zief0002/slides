@@ -14,7 +14,7 @@ code-line-numbers: false
 
 ## Reminder
 
-Lab Assignment #1 Due Tuesday: 1/30
+Get started on Lab Assignment #1!
 
 
 ## Learning Goals
