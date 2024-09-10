@@ -221,31 +221,99 @@ knitr::include_graphics("figs/03-08-installing-packages.png")
 ```
 
 
-## Using Multiple Functions
+## Load a Package
 
-<!-- Functions can be chained together so that the output of one function is sent to another function. -->
+- To use the functions from a particular package, we we will need to load the package (loading and installing are two different things!)
+- To load the package and its functions we use the `library()` function
+- You will need to load packages every time you open R Studio
 
-<!-- <br /><br /> -->
+---
 
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- #| echo: true -->
-<!-- butter_bread(type = "wheat") + -->
-<!-- add_cheese(flavor = "colby") + -->
-<!-- fry_sandwich(time = 6) -->
-<!-- ``` -->
+## Load Packages (cntd.)
+
+General Example: `library(libraryName)`
+
+- `library()` is our function
+- `libraryName` will specify the library we want to load
+- To load the `{ggformula}` library we would use:
+
+```{r}
+#| eval: false
+#| echo: true
+library(ggformula)
+```
 
 
-<!-- ## Grilled Cheese Activity (cntd.) -->
+---
 
-<!-- Complete Parts 2 and 3 of the activity. -->
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-09-loaded-package.png")
+```
+
+---
+
+## Install vs. Loading
+
+- You only need to install a package once
+- But, you need to load that package every time you open a new session in RStudio. (After you load it, all the functions in the library can be used.
+- Phone App analogy
+
+---
+
+## Importing Data
+
+- Click `Import Dataset > From Text (readr)`
+- Navigate to your dataset by clicking `Browse`
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-10-import-data.png")
+```
+
+---
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-10-02-import-data.png")
+```
+
+---
+
+## Writing Code
 
 
-<!-- ## Looking Ahead -->
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-11-writing-code.png")
+```
 
-<!-- - We will write functions like this in class. -->
-<!-- - We will use R Studio for writing and analyzing code. -->
-<!-- - You will always be given functions. -->
-<!-- - You will need to be precise when writing code and checking for bugs. -->
-<!--   + Bugs are a normal part of the coding process! -->
+---
+
+## Commenting Code
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-12-commenting-code.png")
+```
+
+
+## Executing Code In R Studio
+
+```{r}
+#| echo: false
+knitr::include_graphics("figs/03-13-running-code.png")
+```
+
+---
+
+## Introduction to R Studio Activity {.center background-image="figs/section-bg.png" background-size=contain}
+
+---
+
+## Summary
+
+- Load libraries (Be sure to install any libraries you do not have.)
+- Import data
+- Ready to perform analysis!
 

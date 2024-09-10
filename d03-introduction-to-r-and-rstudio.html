@@ -580,25 +580,72 @@
 
 
 <img data-src="figs/03-08-installing-packages.png" width="1173" class="r-stretch"></section>
-<section id="using-multiple-functions" class="slide level2">
-<h2>Using Multiple Functions</h2>
-<!-- Functions can be chained together so that the output of one function is sent to another function. -->
-<!-- <br /><br /> -->
-<!-- ```{r} -->
-<!-- #| eval: false -->
-<!-- #| echo: true -->
-<!-- butter_bread(type = "wheat") + -->
-<!-- add_cheese(flavor = "colby") + -->
-<!-- fry_sandwich(time = 6) -->
-<!-- ``` -->
-<!-- ## Grilled Cheese Activity (cntd.) -->
-<!-- Complete Parts 2 and 3 of the activity. -->
-<!-- ## Looking Ahead -->
-<!-- - We will write functions like this in class. -->
-<!-- - We will use R Studio for writing and analyzing code. -->
-<!-- - You will always be given functions. -->
-<!-- - You will need to be precise when writing code and checking for bugs. -->
-<!--   + Bugs are a normal part of the coding process! -->
+<section id="load-a-package" class="slide level2">
+<h2>Load a Package</h2>
+<ul>
+<li>To use the functions from a particular package, we we will need to load the package (loading and installing are two different things!)</li>
+<li>To load the package and its functions we use the <code>library()</code> function</li>
+<li>You will need to load packages every time you open R Studio</li>
+</ul>
+</section>
+<section id="load-packages-cntd." class="slide level2">
+<h2>Load Packages (cntd.)</h2>
+<p>General Example: <code>library(libraryName)</code></p>
+<ul>
+<li><code>library()</code> is our function</li>
+<li><code>libraryName</code> will specify the library we want to load</li>
+<li>To load the <code>{ggformula}</code> library we would use:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggformula)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="figs/03-09-loaded-package.png" width="1324" class="r-stretch"></section>
+<section id="install-vs.-loading" class="slide level2">
+<h2>Install vs.&nbsp;Loading</h2>
+<ul>
+<li>You only need to install a package once</li>
+<li>But, you need to load that package every time you open a new session in RStudio. (After you load it, all the functions in the library can be used.</li>
+<li>Phone App analogy</li>
+</ul>
+</section>
+<section id="importing-data" class="slide level2">
+<h2>Importing Data</h2>
+<ul>
+<li>Click <code>Import Dataset &gt; From Text (readr)</code></li>
+<li>Navigate to your dataset by clicking <code>Browse</code></li>
+</ul>
+
+<img data-src="figs/03-10-import-data.png" width="822" class="r-stretch"></section>
+<section class="slide level2">
+
+
+<img data-src="figs/03-10-02-import-data.png" width="1794" class="r-stretch"></section>
+<section id="writing-code" class="slide level2">
+<h2>Writing Code</h2>
+
+<img data-src="figs/03-11-writing-code.png" width="1422" class="r-stretch"></section>
+<section id="commenting-code" class="slide level2">
+<h2>Commenting Code</h2>
+
+<img data-src="figs/03-12-commenting-code.png" width="1390" class="r-stretch"></section>
+<section id="executing-code-in-r-studio" class="slide level2">
+<h2>Executing Code In R Studio</h2>
+
+<img data-src="figs/03-13-running-code.png" width="1405" class="r-stretch"></section>
+<section id="introduction-to-r-studio-activity" class="slide level2 center" data-background-image="figs/section-bg.png" data-background-size="contain">
+<h2>Introduction to R Studio Activity</h2>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Load libraries (Be sure to install any libraries you do not have.)</li>
+<li>Import data</li>
+<li>Ready to perform analysis!</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
