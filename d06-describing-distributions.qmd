@@ -90,9 +90,10 @@ gf_density(~price, data = lego)
 ::: {.column width="50%"}
 
 ```{r}
-#| echo: true
+#| echo: false
 symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
-gf_density(~x, data = symmetric, xlab = "Variable X")
+gf_density(~x, data = symmetric, xlab = "Variable X")  + 
+  theme_grey(base_size = 22)
 ```
 
 
@@ -101,11 +102,12 @@ gf_density(~x, data = symmetric, xlab = "Variable X")
 ::: {.column width="50%"}
 
 ```{r}
-#| echo: true
+#| echo: false
 skewed <- data.frame(y = rbeta(10000,100,2))
 skewed[1] <- skewed[1]*(10+0.08)
 
-gf_density(~y, data = skewed, xlab = "Variable Y")
+gf_density(~y, data = skewed, xlab = "Variable Y")  + 
+  theme_grey(base_size = 22)
 ```
 
 :::
@@ -194,7 +196,8 @@ library(patchwork)
 
 ```{r}
 symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
-gf_density(~x, data = symmetric, xlab = "Variable X")
+gf_density(~x, data = symmetric, xlab = "Variable X") + 
+  theme_grey(base_size = 22)
 ```
 
 
@@ -204,7 +207,8 @@ gf_density(~x, data = symmetric, xlab = "Variable X")
 
 ```{r}
 symmetric2 <- data.frame(x = rnorm(10000, mean = 20, sd = 5))
-gf_density(~x, data = symmetric2, xlab = "Variable X")
+gf_density(~x, data = symmetric2, xlab = "Variable X")  + 
+  theme_grey(base_size = 22)
 ```
 
 :::
@@ -229,7 +233,8 @@ gf_density(~x, data = symmetric2, xlab = "Variable X")
 ```{r}
 symmetric <- data.frame(x = rnorm(10000, mean = 10, sd = 5))
 gf_density(~x, data = symmetric, xlab = "Variable X") +
-  xlim(-10, 30)
+  xlim(-10, 30)  + 
+  theme_grey(base_size = 22)
 ```
 
 
@@ -240,7 +245,8 @@ gf_density(~x, data = symmetric, xlab = "Variable X") +
 ```{r}
 symmetric3 <- data.frame(x = rnorm(10000, mean = 10, sd = 1))
 gf_density(~x, data = symmetric3, xlab = "Variable X") +
-  xlim(-10, 30)
+  xlim(-10, 30)  + 
+  theme_grey(base_size = 22)
 ```
 
 :::
