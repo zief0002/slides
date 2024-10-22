@@ -115,7 +115,7 @@ H_A: \pi_{\text{Drug}} - \pi_{\text{Placebo}} &\neq 0
 $$
 
 
-## Sample Difference in Proportions → *z*-value {.smaller}
+## Sample Statistics
 
 Get the sample proportion of success:
 
