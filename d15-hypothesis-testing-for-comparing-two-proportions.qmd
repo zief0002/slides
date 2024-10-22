@@ -117,12 +117,25 @@ $$
 
 ## Sample Difference in Proportions → *z*-value {.smaller}
 
+Get the sample proportion of success:
+
 ```{r}
 #| echo: true
 df_stats(~Success | Treatment, data = trial, "props")
 ```
 
 <br />
+
+Get the sample sizes:
+
+```{r}
+#| echo: true
+df_stats(~Success | Treatment, data = trial, "counts")
+```
+
+
+
+## Sample Difference in Proportions → *z*-value 
 
 - The sample statistic is the difference in proportions
    + We will subtract the proportion of success for the treatment group from the proportion of success for the placebo group (ALPHABETICALLY)
