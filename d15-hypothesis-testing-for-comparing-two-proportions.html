@@ -520,43 +520,50 @@ H_A: \pi_{\text{Drug}} - \pi_{\text{Placebo}} &amp;\neq 0
 }
 \]</span></p>
 </section>
-<section id="sample-difference-in-proportions" class="slide level2 smaller">
-<h2>Sample Difference in Proportions</h2>
+<section id="sample-difference-in-proportions-z-value" class="slide level2 smaller">
+<h2>Sample Difference in Proportions → <em>z</em>-value</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">df_stats</span>(<span class="sc">~</span>Success <span class="sc">|</span> Treatment, <span class="at">data =</span> trial, <span class="st">"props"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  response Treatment   prop_no  prop_yes
+1  Success   Placebo 0.8387097 0.1612903
+2  Success Treatment 0.6000000 0.4000000</code></pre>
+</div>
+</div>
+<p><br></p>
 <ul>
-<li>We will compare our sample difference in proportions to a <em>z</em>-distribution
+<li>The sample statistic is the difference in proportions
 <ul>
-<li>We will compute the proportion for each group</li>
-<li>Then we will subtract the proportion of success for the treatment group from the proportion of success for the placebo group (ALPHABETICALLY)</li>
-</ul></li>
-<li>Proportion success for Treatment: 0.40</li>
-<li>Proportion success for Placebo: 0.17</li>
+<li>We will subtract the proportion of success for the treatment group from the proportion of success for the placebo group (ALPHABETICALLY)</li>
 <li>Sample difference in proportions: <span class="math inline">\(0.17 - 0.40 = -0.23\)</span></li>
-<li>This gets converted to a <em>z</em>-value: <span class="math inline">\(-0.23\)</span> → <span class="math inline">\(-2.08\)</span> (R Studio will do this for us!)</li>
+</ul></li>
+<li>The sample difference of <span class="math inline">\(-0.23\)</span> gets converted to a <em>z</em>-value: <span class="math inline">\(z = -2.08\)</span> (R Studio will do this for us!)</li>
+<li>This value gets evaluated in a <em>z</em>-distribution</li>
 </ul>
 </section>
 <section id="r-studio" class="slide level2">
 <h2>R Studio</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
-<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Success <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">|</span> Treatment, </span>
-<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> trial,</span>
-<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="cn">FALSE</span></span>
-<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a>my_z <span class="ot">&lt;-</span> <span class="fu">prop_test</span>(</span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>Success <span class="sc">==</span> <span class="st">"yes"</span> <span class="sc">|</span> Treatment, </span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> trial,</span>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">correct =</span> <span class="cn">FALSE</span></span>
+<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="compare-sample-difference-to-null-distribution" class="slide level2">
 <h2>Compare Sample Difference to Null Distribution</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_z_dist</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="d15-hypothesis-testing-for-comparing-two-proportions_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<img data-src="d15-hypothesis-testing-for-comparing-two-proportions_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="p-value-and-decision" class="slide level2">
 <h2><em>p</em>-Value and Decision</h2>
 <p>Since our <em>p</em>-value is less than 0.05 here…we will reject the null hypothesis.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">z_results</span>(my_z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------

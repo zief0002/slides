@@ -115,18 +115,25 @@ H_A: \pi_{\text{Drug}} - \pi_{\text{Placebo}} &\neq 0
 $$
 
 
-## Sample Difference in Proportions {.smaller}
+## Sample Difference in Proportions → *z*-value {.smaller}
 
-- We will compare our sample difference in proportions to a *z*-distribution
-  + We will compute the proportion for each group
-  + Then we will subtract the proportion of success for the treatment group from the proportion of success for the placebo group (ALPHABETICALLY)
-- Proportion success for Treatment: 0.40
-- Proportion success for Placebo: 0.17
-- Sample difference in proportions: $0.17 - 0.40 = -0.23$
-- This gets converted to a *z*-value: $-0.23$ → $-2.08$ (R Studio will do this for us!)
+```{r}
+#| echo: true
+df_stats(~Success | Treatment, data = trial, "props")
+```
+
+<br />
+
+- The sample statistic is the difference in proportions
+   + We will subtract the proportion of success for the treatment group from the proportion of success for the placebo group (ALPHABETICALLY)
+   + Sample difference in proportions: $0.17 - 0.40 = -0.23$
+- The sample difference of $-0.23$ gets converted to a *z*-value:  $z = -2.08$ (R Studio will do this for us!)
+- This value gets evaluated in a *z*-distribution
 
 
 ## R Studio
+
+
 
 ```{r}
 #| echo: true
