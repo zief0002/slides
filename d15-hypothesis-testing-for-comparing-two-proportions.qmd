@@ -65,7 +65,7 @@ To [test a claim]{style="text-decoration: underline;"} about a [population param
 
 - There are only two values the attribute can take on for each group (e.g., "yes" or "no")
 - The values in both populations are independent from each other. (This is the case if we have a random sample.)
-- Sample Size for all groups is bigger than 10
+- Sample size in both groups is large enough:
   + $n_1(\hat{p_1}) > 10$
   + $n_1(1-\hat{p_1}) > 10$
   + $n_2(\hat{p_2}) > 10$
@@ -149,7 +149,7 @@ plot_z_dist(my_z)
 
 ## *p*-Value and Decision
 
-Since our *p*-value is soooo close to 0.05 here...we will not reject the null hypothesis.
+Since our *p*-value is less than 0.05 here...we will reject the null hypothesis.
 
 
 ```{r}
@@ -160,7 +160,7 @@ z_results(my_z)
 
 ## Conclusion
 
-We can conclude that there is not likely a difference between the success rate of the new drug compared to the placebo.
+We can conclude that there is likely a difference between the success rate of the new drug compared to the placebo.
 
 
 
